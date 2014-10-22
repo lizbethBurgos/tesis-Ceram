@@ -1,0 +1,9 @@
+C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\BussinessRules\bin\Debug\BussinessRules.pdb
+C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\BussinessRules\obj\x86\Debug\BussinessRules.Properties.Resources.resources
+C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\BussinessRules\obj\x86\Debug\BussinessRules.pdb
+C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\BussinessRules\bin\Debug\BussinessRules.dll
+C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\BussinessRules\obj\x86\Debug\BussinessRules.dll
+C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\BussinessRules\bin\Debug\DataAccess.dll
+C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\BussinessRules\bin\Debug\DataAccess.pdb
+C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\BussinessRules\obj\x86\Debug\BussinessRules.csprojResolveAssemblyReference.cache
+C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\BussinessRules\obj\x86\Debug\BussinessRules.csproj.GenerateResource.Cache

@@ -1,0 +1,5 @@
+C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\ProjectCeram\bin\ProjectCeram.dll
+C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\ProjectCeram\bin\ProjectCeram.pdb
+C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\ProjectCeram\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\ProjectCeram\obj\Debug\ProjectCeram.dll
+C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\ProjectCeram\obj\Debug\ProjectCeram.pdb
