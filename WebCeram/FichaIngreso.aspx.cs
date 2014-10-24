@@ -22,35 +22,36 @@ namespace WebCeram
         {
             
         }
+        protected void btnCerrar_Click(object sender, EventArgs e)
+        {
+            ModalPopupExtender2.Hide();
+        }
+       
         protected void btnClose_Click(object sender, EventArgs e)
         {
             ModalPopupExtender1.Hide();
-        }
-        protected void btnPopUp_Click(object sender, EventArgs e)
-        {
-            ModalPopupExtender1.Show();
         }
         protected void btBuscar_Click(object sender, EventArgs e)
         {
             if (this.tbNameSearch.Text == "")
             {
-                CatalogSamplerCompany csc = new CatalogSamplerCompany();
-                DataSet ds = csc.listSamplerCompany();
-                this.GridView1.DataSource = ds;
+                CatalogApplicantCompany cac = new CatalogApplicantCompany();
+                DataSet ds = cac.listApplicantCompany();
+                this.gvSearch.DataSource = ds;
                 DataBind();
-                //this.CleanControl(this.Controls);
+                this.CleanControl(this.Controls);
             }
             else
             {
-                CatalogSamplerCompany csc = new CatalogSamplerCompany();
-                List<SamplerCompany> lcs = csc.getSamplerCompanyName(this.tbNameSearch.Text);
-                this.gvSearch.DataSource = lcs;
+                CatalogApplicantCompany cac = new CatalogApplicantCompany();
+                List<ApplicantCompany> lac = cac.getApplicantCompanyName(this.tbNameSearch.Text);
+                this.gvSearch0.DataSource = lac;
                 DataBind();
-                //this.CleanControl(this.Controls);
-                if (lcs.Count == 0)
+                this.CleanControl(this.Controls);
+                if (lac.Count == 0)
                 {
-                    this.labelNamSearch0.Text = "No se encontraron resultados para su busqueda";
-                   // this.CleanControl(this.Controls);
+                    this.lbSearchName.Text = "No se encontraron resultados para su busqueda";
+                   this.CleanControl(this.Controls);
                 }
             }
         }
@@ -59,24 +60,24 @@ namespace WebCeram
         {
             if (this.tbCode.Text == "")
             {
-                CatalogSamplerCompany csc = new CatalogSamplerCompany();
-                DataSet ds = csc.listSamplerCompany();
-                this.GridView1.DataSource = ds;
+                CatalogApplicantCompany cac = new CatalogApplicantCompany();
+                DataSet ds = cac.listApplicantCompany();
+                this.gvSearch.DataSource = ds;
                 DataBind();
-               // this.CleanControl(this.Controls);
+               this.CleanControl(this.Controls);
             }
             else
             {
-                CatalogSamplerCompany csc = new CatalogSamplerCompany();
-                List<SamplerCompany> lcs = csc.getSamplerCompanyCode(Int32.Parse(this.tbCode.Text));
-                this.gvSearch.DataSource = lcs;
+                CatalogApplicantCompany cac = new CatalogApplicantCompany();
+                List<ApplicantCompany> lac= cac.getApplicantCompanyCode(Int32.Parse(tbCode.Text));
+                this.gvSearch0.DataSource = lac;
                 DataBind();
-               // this.CleanControl(this.Controls);
+               this.CleanControl(this.Controls);
 
-                if (lcs.Count == 0)
+                if (lac.Count == 0)
                 {
-                    this.labelCodSearch.Text = "No se encontraron resultados para su busqueda";
-                   // this.CleanControl(this.Controls);
+                    this.lbSearchCod.Text = "No se encontraron resultados para su busqueda";
+                   this.CleanControl(this.Controls);
                 }
             }
         }
@@ -99,6 +100,61 @@ namespace WebCeram
         protected void btnPopUp_Click1(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Show();
+        }
+        protected void btnPopUPMuestrea_Click1(object sender, EventArgs e)
+        {
+            this.ModalPopupExtender2.Show();
+        }
+        
+        protected void btBuscarName_Click(object sender, EventArgs e)
+        {
+            if (this.TextBox1.Text == "")
+            {
+                CatalogSamplerCompany csc = new CatalogSamplerCompany();
+                DataSet ds = csc.listSamplerCompany();
+                this.GridView1.DataSource = ds;
+                DataBind();
+                this.CleanControl(this.Controls);
+            }
+            else
+            {
+                CatalogSamplerCompany csc = new CatalogSamplerCompany();
+                List<SamplerCompany> lcs = csc.getSamplerCompanyName(this.TextBox1.Text);
+                this.GridView2.DataSource = lcs;
+                DataBind();
+                this.CleanControl(this.Controls);
+                if (lcs.Count == 0)
+                {
+                    this.labelNamSearch0.Text = "No se encontraron resultados para su busqueda";
+                    this.CleanControl(this.Controls);
+                }
+            }
+        }
+
+        protected void btBuscarCodeMue_Click(object sender, EventArgs e)
+        {
+            if (this.TextBox2.Text == "")
+            {
+                CatalogSamplerCompany csc = new CatalogSamplerCompany();
+                DataSet ds = csc.listSamplerCompany();
+                this.GridView1.DataSource = ds;
+                DataBind();
+                this.CleanControl(this.Controls);
+            }
+            else
+            {
+                CatalogSamplerCompany csc = new CatalogSamplerCompany();
+                List<SamplerCompany> lcs = csc.getSamplerCompanyCode(Int32.Parse(this.TextBox2.Text));
+                this.GridView2.DataSource = lcs;
+                DataBind();
+                this.CleanControl(this.Controls);
+
+                if (lcs.Count == 0)
+                {
+                    this.labelCodSearch.Text = "No se encontraron resultados para su busqueda";
+                    this.CleanControl(this.Controls);
+                }
+            }
         }
     }
 }

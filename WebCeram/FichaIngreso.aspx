@@ -185,7 +185,7 @@
                 <td class="style1">
                     Empresa Solicitante</td>
                 <td>
-                    <asp:TextBox ID="TextBox19" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbSolicitantEmpresa" runat="server"></asp:TextBox>
                     <asp:UpdatePanel runat="server">
                         <ContentTemplate>
                             <asp:Button ID="btnPopUp" runat="server" Text="Buscar" 
@@ -212,47 +212,47 @@
                                         <table style="width:100%;">
                                             <tr>
                                                 <td>
-                                                            Nombre de la Empresa</td>
+                                                    Nombre de la Empresa</td>
                                                 <td>
                                                     <asp:TextBox ID="tbNameSearch" runat="server"></asp:TextBox>
                                                     <br />
-                                                    <asp:Label ID="labelNamSearch0" runat="server" ForeColor="Red"></asp:Label>
+                                                    <asp:Label ID="lbSearchName" runat="server" ForeColor="Red"></asp:Label>
                                                 </td>
                                                 <td>
                                                     <asp:Button ID="btBuscarName" runat="server" Text="Buscar" 
-                                                                onclick="btBuscar_Click" />
+                                                        onclick="btBuscar_Click" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                            Código de la Empresa</td>
+                                                    Código de la Empresa</td>
                                                 <td>
                                                     <asp:TextBox ID="tbCode" runat="server"></asp:TextBox>
                                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                                                                ControlToValidate="tbCode" ErrorMessage="Debe de colocar un número" 
-                                                                ForeColor="Red" ValidationExpression="[0-9]*"></asp:RegularExpressionValidator>
+                                                        ControlToValidate="tbCode" ErrorMessage="Debe de colocar un número" 
+                                                        ForeColor="Red" ValidationExpression="[0-9]*"></asp:RegularExpressionValidator>
                                                     <br />
-                                                    <asp:Label ID="labelCodSearch" runat="server" ForeColor="Red"></asp:Label>
+                                                    <asp:Label ID="lbSearchCod" runat="server" ForeColor="Red"></asp:Label>
                                                 </td>
                                                 <td>
                                                     <asp:Button ID="btBuscarCode" runat="server" Text="Buscar" 
-                                                                onclick="btBuscarCode_Click" />
+                                                        onclick="btBuscarCode_Click" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                            &nbsp;</td>
+                                                    &nbsp;</td>
                                                 <td>
-                                                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-                                                                BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" 
-                                                                CellPadding="4" ForeColor="Black" GridLines="Vertical">
+                                                    <asp:GridView ID="gvSearch" runat="server" BackColor="White" 
+                                                        BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" 
+                                                        ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False">
                                                         <AlternatingRowStyle BackColor="White" />
                                                         <Columns>
-                                                            <asp:BoundField DataField="Cod_sampler" HeaderText="Código" />
-                                                            <asp:BoundField DataField="Name_sampler" HeaderText="Nombre" />
+                                                            <asp:BoundField DataField="Cod_client" HeaderText="Código" />
+                                                            <asp:BoundField DataField="Name_client" HeaderText="Nombre" />
                                                             <asp:BoundField DataField="Email" HeaderText="Email" />
-                                                            <asp:BoundField DataField="Fono" HeaderText="Teléfono" />
-                                                            <asp:BoundField DataField="Direccion" HeaderText="Dirección" />
+                                                            <asp:BoundField DataField="Phone" HeaderText="Teléfono" />
+                                                            <asp:BoundField DataField="Direc" HeaderText="Dirección" />
                                                         </Columns>
                                                         <FooterStyle BackColor="#CCCC99" />
                                                         <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
@@ -264,16 +264,16 @@
                                                         <SortedDescendingCellStyle BackColor="#EAEAD3" />
                                                         <SortedDescendingHeaderStyle BackColor="#575357" />
                                                     </asp:GridView>
-                                                    <asp:GridView ID="gvSearch" runat="server" BackColor="White" 
-                                                                BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" 
-                                                                ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False">
+                                                    <asp:GridView ID="gvSearch0" runat="server" BackColor="White" 
+                                                        BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" 
+                                                        ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False">
                                                         <AlternatingRowStyle BackColor="White" />
                                                         <Columns>
-                                                            <asp:BoundField DataField="CodSampler" HeaderText="Código" />
-                                                            <asp:BoundField DataField="NameSampler" HeaderText="Nombre" />
+                                                            <asp:BoundField DataField="CodClient" HeaderText="Código" />
+                                                            <asp:BoundField DataField="NameClient" HeaderText="Nombre" />
                                                             <asp:BoundField DataField="Email" HeaderText="Email" />
                                                             <asp:BoundField DataField="Fono" HeaderText="Teléfono" />
-                                                            <asp:BoundField DataField="Direccion" HeaderText="Dirección" />
+                                                            <asp:BoundField DataField="DireClient" HeaderText="Dirección" />
                                                         </Columns>
                                                         <FooterStyle BackColor="#CCCC99" />
                                                         <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
@@ -287,7 +287,7 @@
                                                     </asp:GridView>
                                                 </td>
                                                 <td>
-                                                            &nbsp;</td>
+                                                    &nbsp;</td>
                                             </tr>
                                         </table>
                                     </td>
@@ -316,7 +316,7 @@
                 <td class="style1">
                     Atención</td>
                 <td>
-                    <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbAtencion" runat="server"></asp:TextBox>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -357,7 +357,7 @@
                 <td class="style1">
                     Nombre Comercial</td>
                 <td>
-                    <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbNameComercial" runat="server"></asp:TextBox>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -368,7 +368,7 @@
                 <td class="style1">
                     Tipo Elaboración- Presentación</td>
                 <td>
-                    <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbPresentacion" runat="server"></asp:TextBox>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -379,7 +379,10 @@
                 <td class="style1">
                     Cantidad de Muestras</td>
                 <td>
-                    <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbCantidad" runat="server"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
+                        ControlToValidate="tbCantidad" ErrorMessage="Debe ingresar números" 
+                        ForeColor="Red" ValidationExpression="[0-9]*"></asp:RegularExpressionValidator>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -390,7 +393,7 @@
                 <td class="style1">
                     Lugar de Extracción de Muestra</td>
                 <td>
-                    <asp:TextBox ID="TextBox11" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbExtraccion" runat="server"></asp:TextBox>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -401,12 +404,127 @@
                 <td class="style1">
                     Entidad Muestreadora</td>
                 <td>
-                    <asp:TextBox ID="TextBox12" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbEntiMuestra" runat="server"></asp:TextBox>
+                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                    <ContentTemplate>
+                        <asp:Button ID="btnPopUPMuestrea" runat="server" Text="Buscar" OnClick="btnPopUPMuestrea_Click1" />
+                    </ContentTemplate>
+                    </asp:UpdatePanel>
+                    <asp:Button ID="btnIni" runat="server" Text="Button" Style="display:none" />
+                    <asp:ModalPopupExtender ID="ModalPopupExtender2" runat="server" DynamicServicePath="" Enabled="true"
+                    TargetControlID="btnIni"  BackgroundCssClass="modalBackground" PopupControlID="ModalPanel1">
+                    </asp:ModalPopupExtender>
+                    <asp:Panel ID="ModalPanel1" runat="server" Style="display:none; background:white; width:70%; height:auto;">
+                        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                        <ContentTemplate>
+                        <div class="modal-header">
+                        <h3 id="H1">Buscar Empresa</h3>
+                        </div>
+                        <div class="modal-body">
+        	                <table style="width:100%;">
+                                <tr>
+                                    <td>
+                                        <table style="width:100%;">
+                                            <tr>
+                                            <td>
+                                                Nombre de la Empresa</td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                                <br />
+                                                <asp:Label ID="labelNamSearch0" runat="server" ForeColor="Red"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:Button ID="Button2" runat="server" Text="Buscar Nombre" 
+                                                    onclick="btBuscarName_Click" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Código de la Empresa</td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
+                                                    ControlToValidate="tbCode" ErrorMessage="Debe de colocar un número" 
+                                                    ForeColor="Red" ValidationExpression="[0-9]*"></asp:RegularExpressionValidator>
+                                                <br />
+                                                <asp:Label ID="labelCodSearch" runat="server" ForeColor="Red"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:Button ID="Button3" runat="server" Text="Buscar Code" 
+                                                    onclick="btBuscarCodeMue_Click" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                &nbsp;</td>
+                                            <td>
+                                                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
+                                                    BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" 
+                                                    CellPadding="4" ForeColor="Black" GridLines="Vertical">
+                                                    <AlternatingRowStyle BackColor="White" />
+                                                    <Columns>
+                                                        <asp:BoundField DataField="Cod_sampler" HeaderText="Código" />
+                                                        <asp:BoundField DataField="Name_sampler" HeaderText="Nombre" />
+                                                        <asp:BoundField DataField="Email" HeaderText="Email" />
+                                                        <asp:BoundField DataField="Fono" HeaderText="Teléfono" />
+                                                        <asp:BoundField DataField="Direccion" HeaderText="Dirección" />
+                                                    </Columns>
+                                                    <FooterStyle BackColor="#CCCC99" />
+                                                    <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
+                                                    <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
+                                                    <RowStyle BackColor="#F7F7DE" />
+                                                    <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                                                    <SortedAscendingCellStyle BackColor="#FBFBF2" />
+                                                    <SortedAscendingHeaderStyle BackColor="#848384" />
+                                                    <SortedDescendingCellStyle BackColor="#EAEAD3" />
+                                                    <SortedDescendingHeaderStyle BackColor="#575357" />
+                                                </asp:GridView>
+                                                <asp:GridView ID="GridView2" runat="server" BackColor="White" 
+                                                    BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" 
+                                                    ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False">
+                                                    <AlternatingRowStyle BackColor="White" />
+                                                    <Columns>
+                                                        <asp:BoundField DataField="CodSampler" HeaderText="Código" />
+                                                        <asp:BoundField DataField="NameSampler" HeaderText="Nombre" />
+                                                        <asp:BoundField DataField="Email" HeaderText="Email" />
+                                                        <asp:BoundField DataField="Fono" HeaderText="Teléfono" />
+                                                        <asp:BoundField DataField="Direccion" HeaderText="Dirección" />
+                                                    </Columns>
+                                                    <FooterStyle BackColor="#CCCC99" />
+                                                    <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
+                                                    <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
+                                                    <RowStyle BackColor="#F7F7DE" />
+                                                    <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                                                    <SortedAscendingCellStyle BackColor="#FBFBF2" />
+                                                    <SortedAscendingHeaderStyle BackColor="#848384" />
+                                                    <SortedDescendingCellStyle BackColor="#EAEAD3" />
+                                                    <SortedDescendingHeaderStyle BackColor="#575357" />
+                                                </asp:GridView>
+                                            </td>
+                                            <td>
+                                                &nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    </td>
+                                    <td>
+                                                &nbsp;</td>
+                                </tr>
+                            </table>
+                            <div style="float:left; width:100%;">
+                    </div>
+                        </div>
+                        <div class="modal-footer">
+                  <asp:Button ID="Button4" runat="server" Text="Cerrar" class="btn" 
+                      data-dismiss="modal" aria-hidden="true" onclick="btnCerrar_Click"/>
+                </div>
+                        </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </asp:Panel>
                 </td>
                 <td>
                     Muestreador</td>
                 <td>
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbMuestreador" runat="server"></asp:TextBox>
                 </td>
             </tr>
         </table>
@@ -426,28 +544,28 @@
         </tr>
         <tr>
             <td class="style2">
-                <asp:TextBox ID="TextBox13" runat="server"></asp:TextBox>
+                <asp:TextBox ID="tbVam" runat="server"></asp:TextBox>
             </td>
             <td class="style2">
-                <asp:TextBox ID="TextBox14" runat="server"></asp:TextBox>
+                <asp:TextBox ID="tbVDM" runat="server"></asp:TextBox>
             </td>
             <td class="style2">
-                <asp:TextBox ID="TextBox15" runat="server"></asp:TextBox>
+                <asp:TextBox ID="tbVPM" runat="server"></asp:TextBox>
             </td>
             <td class="style2">
-                <asp:TextBox ID="TextBox16" runat="server"></asp:TextBox>
+                <asp:TextBox ID="tbFito" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td>
                 Temperatura
-                <asp:TextBox ID="TextBox17" runat="server"></asp:TextBox>
+                <asp:TextBox ID="tbTemp" runat="server"></asp:TextBox>
             </td>
             <td>
                 &nbsp;</td>
             <td>
                 Otro Especificar
-                <asp:TextBox ID="TextBox18" runat="server"></asp:TextBox>
+                <asp:TextBox ID="tbOtro" runat="server"></asp:TextBox>
             </td>
             <td>
                 &nbsp;</td>
