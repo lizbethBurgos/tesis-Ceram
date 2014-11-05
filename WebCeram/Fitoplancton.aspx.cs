@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BussinessRules;
+using System.Data;
 
 namespace WebCeram
 {
@@ -39,18 +40,57 @@ namespace WebCeram
 
         protected void btSearchName_Click(object sender, EventArgs e)
         {
-            CatalogFitoplancton cf = new CatalogFitoplancton();
-            List<Fitoplancton> lf = cf.getCellName(tbName.Text);
-            this.gvSearchCell.DataSource = lf;
-            DataBind();
+            if (this.tbName.Text == "")
+            {
+                CatalogFitoplancton cf = new CatalogFitoplancton();
+                DataSet ds = cf.listFitoplancton();
+                this.gvSearchCell0.DataSource = ds;
+                DataBind();
+                CleanControl(this.Controls);
+                this.lbSearchNa.Text = "";
+            }
+            else
+            {
+                CatalogFitoplancton cf = new CatalogFitoplancton();
+                List<Fitoplancton> lf = cf.getCellName(tbName.Text);
+                this.gvSearchCell.DataSource = lf;
+                DataBind();
+                CleanControl(this.Controls);
+                this.lbSearchNa.Text = "";
+                if (lf.Count == 0)
+                {
+                    this.lbSearchNa.Text = "No se econtraron resultados";
+                    CleanControl(this.Controls);
+                }
+            }
         }
 
         protected void btSearchCode_Click(object sender, EventArgs e)
         {
-            CatalogFitoplancton cf = new CatalogFitoplancton();
-            List<Fitoplancton> lf = cf.getCellCode(Int32.Parse(tbCodeSearch.Text));
-            this.gvSearchCell.DataSource = lf;
-            DataBind();
+            if (this.tbCodeSearch.Text == "")
+            {
+                CatalogFitoplancton cf = new CatalogFitoplancton();
+                DataSet ds = cf.listFitoplancton();
+                this.gvSearchCell0.DataSource = ds;
+                DataBind();
+                CleanControl(this.Controls);
+                this.lbSearchCo.Text = "";
+            }
+            else
+            {
+
+                CatalogFitoplancton cf = new CatalogFitoplancton();
+                List<Fitoplancton> lf = cf.getCellCode(Int32.Parse(tbCodeSearch.Text));
+                this.gvSearchCell.DataSource = lf;
+                DataBind();
+                CleanControl(this.Controls);
+                this.lbSearchCo.Text = "";
+                if (lf.Count == 0)
+                {
+                    this.lbSearchCo.Text = "No se econtraron resultados";
+                    CleanControl(this.Controls);
+                }
+            }
         }
 
         protected void btDrop_Click(object sender, EventArgs e)

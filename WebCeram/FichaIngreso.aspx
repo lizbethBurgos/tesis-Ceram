@@ -108,8 +108,9 @@
         
     </style>
     <link rel="stylesheet" href="Scripts/include/ui-1.10.0/ui-lightness/jquery-ui-1.10.0.custom.min.css" type="text/css" />
-     <link rel="stylesheet" href="Scripts/jquery.ui.timepicker.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="Scripts/i18n/jquery.ui.timepicker-es" type="text/css" /> -->
      <script type="text/javascript" src="Scripts/include/jquery-1.9.0.min.js"></script>
+     <script type="text/javascript" src="Scripts/i18n/jquery.ui.timepicker-es.js"></script>
     <script type="text/javascript" src="Scripts/include/ui-1.10.0/jquery.ui.core.min.js"></script>
     <script type="text/javascript" src="Scripts/include/ui-1.10.0/jquery.ui.widget.min.js"></script>
     <script type="text/javascript" src="Scripts/include/ui-1.10.0/jquery.ui.tabs.min.js"></script>
@@ -138,8 +139,8 @@
          $('#timepicker\\.\\[1\\]').timepicker({
              showAnim: 'blind'
          });
-     });
-                    </script>
+     });                  
+</script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -176,7 +177,9 @@
     <br />
 
 <h2 class="style5">
-        Ficha de Ingreso de Muestras 44923</h2>
+        Ficha de Ingreso de Muestras 
+        <asp:Label ID="lbCodMues" runat="server"></asp:Label>
+    </h2>
     <p>
         <table frame="border" style="width: 100%;">
         <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
@@ -245,7 +248,8 @@
                                                 <td>
                                                     <asp:GridView ID="gvSearch" runat="server" BackColor="White" 
                                                         BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" 
-                                                        ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False">
+                                                        ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False"
+                                                        onselectedindexchanged="gvSearchSAppli_SelectedIndexChanged">
                                                         <AlternatingRowStyle BackColor="White" />
                                                         <Columns>
                                                             <asp:BoundField DataField="Cod_client" HeaderText="Código" />
@@ -253,6 +257,7 @@
                                                             <asp:BoundField DataField="Email" HeaderText="Email" />
                                                             <asp:BoundField DataField="Phone" HeaderText="Teléfono" />
                                                             <asp:BoundField DataField="Direc" HeaderText="Dirección" />
+                                                             <asp:CommandField ShowSelectButton="True" />
                                                         </Columns>
                                                         <FooterStyle BackColor="#CCCC99" />
                                                         <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
@@ -266,7 +271,8 @@
                                                     </asp:GridView>
                                                     <asp:GridView ID="gvSearch0" runat="server" BackColor="White" 
                                                         BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" 
-                                                        ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False">
+                                                        ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False"
+                                                         onselectedindexchanged="gvSearch0SAppli_SelectedIndexChanged">
                                                         <AlternatingRowStyle BackColor="White" />
                                                         <Columns>
                                                             <asp:BoundField DataField="CodClient" HeaderText="Código" />
@@ -274,6 +280,7 @@
                                                             <asp:BoundField DataField="Email" HeaderText="Email" />
                                                             <asp:BoundField DataField="Fono" HeaderText="Teléfono" />
                                                             <asp:BoundField DataField="DireClient" HeaderText="Dirección" />
+                                                             <asp:CommandField ShowSelectButton="True" />
                                                         </Columns>
                                                         <FooterStyle BackColor="#CCCC99" />
                                                         <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
@@ -299,9 +306,8 @@
                     </div>
                         </div>
                         <div class="modal-footer">
-                  <asp:Button ID="btnClose" runat="server" Text="Cerrar" class="btn" 
-                      data-dismiss="modal" aria-hidden="true" onclick="btnClose_Click"/>
-              </div>
+                            <asp:Button ID="btnClose" runat="server" Text="Cerrar" class="btn" data-dismiss="modal" aria-hidden="true" onclick="btnClose_Click"/>
+                        </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </asp:Panel>
@@ -342,15 +348,16 @@
                     
                     <asp:TextBox ID="tbCalendar" runat="server"></asp:TextBox>
                     <asp:CalendarExtender runat="server" TargetControlID="tbCalendar" 
-                        CssClass="ui-widget-content" FirstDayOfWeek="Monday">
+                        CssClass="ui-widget-content" FirstDayOfWeek="Monday" Format="dd/MM/yyyy" 
+                        TodaysDateFormat="dd MMMM, yyyy">
                     </asp:CalendarExtender>
                     
                 </td>
                 <td class="style4">
                     Hora Muestreo</td>
                 <td class="style4">
-                    <input type="text" style="width: 70px;" id="timepicker.[1]" value="" />
-                   
+                   <asp:TextBox ID="tbTimePicker" runat="server" ></asp:TextBox>
+                   <input type="text" style="width: 70px;" id="timepicker.[1]" value="" name="timePicker"/>
                 </td>
             </tr>
             <tr>
@@ -366,7 +373,7 @@
             </tr>
             <tr>
                 <td class="style1">
-                    Tipo Elaboración- Presentación</td>
+                    Producto</td>
                 <td>
                     <asp:TextBox ID="tbPresentacion" runat="server"></asp:TextBox>
                 </td>
@@ -396,9 +403,10 @@
                     <asp:TextBox ID="tbExtraccion" runat="server"></asp:TextBox>
                 </td>
                 <td>
-                    &nbsp;</td>
+                    Preservantes</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:TextBox ID="tbPreservative" runat="server"></asp:TextBox>
+                </td>
             </tr>
             <tr>
                 <td class="style1">
@@ -460,7 +468,8 @@
                                             <td>
                                                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
                                                     BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" 
-                                                    CellPadding="4" ForeColor="Black" GridLines="Vertical">
+                                                    CellPadding="4" ForeColor="Black" GridLines="Vertical" 
+                                                    onselectedindexchanged="gv1Sampler_SelectedIndexChanged">
                                                     <AlternatingRowStyle BackColor="White" />
                                                     <Columns>
                                                         <asp:BoundField DataField="Cod_sampler" HeaderText="Código" />
@@ -468,6 +477,7 @@
                                                         <asp:BoundField DataField="Email" HeaderText="Email" />
                                                         <asp:BoundField DataField="Fono" HeaderText="Teléfono" />
                                                         <asp:BoundField DataField="Direccion" HeaderText="Dirección" />
+                                                        <asp:CommandField ShowSelectButton="True" />
                                                     </Columns>
                                                     <FooterStyle BackColor="#CCCC99" />
                                                     <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
@@ -481,7 +491,8 @@
                                                 </asp:GridView>
                                                 <asp:GridView ID="GridView2" runat="server" BackColor="White" 
                                                     BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" 
-                                                    ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False">
+                                                    ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False"
+                                                    onselectedindexchanged="gv1Sampler2_SelectedIndexChanged">
                                                     <AlternatingRowStyle BackColor="White" />
                                                     <Columns>
                                                         <asp:BoundField DataField="CodSampler" HeaderText="Código" />
@@ -489,6 +500,7 @@
                                                         <asp:BoundField DataField="Email" HeaderText="Email" />
                                                         <asp:BoundField DataField="Fono" HeaderText="Teléfono" />
                                                         <asp:BoundField DataField="Direccion" HeaderText="Dirección" />
+                                                        <asp:CommandField ShowSelectButton="True" />
                                                     </Columns>
                                                     <FooterStyle BackColor="#CCCC99" />
                                                     <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />

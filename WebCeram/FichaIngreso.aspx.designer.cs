@@ -22,6 +22,15 @@ namespace WebCeram {
         protected global::System.Web.UI.WebControls.Menu NavigationMenu;
         
         /// <summary>
+        /// Control lbCodMues.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbCodMues;
+        
+        /// <summary>
         /// Control ToolkitScriptManager1.
         /// </summary>
         /// <remarks>
@@ -211,6 +220,15 @@ namespace WebCeram {
         protected global::System.Web.UI.WebControls.TextBox tbCalendar;
         
         /// <summary>
+        /// Control tbTimePicker.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbTimePicker;
+        
+        /// <summary>
         /// Control tbNameComercial.
         /// </summary>
         /// <remarks>
@@ -254,6 +272,15 @@ namespace WebCeram {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbExtraccion;
+        
+        /// <summary>
+        /// Control tbPreservative.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbPreservative;
         
         /// <summary>
         /// Control tbEntiMuestra.

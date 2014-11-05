@@ -3,5 +3,4 @@ C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\DataAccess\bin\Deb
 C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\DataAccess\bin\Debug\DataAccess.pdb
 C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\DataAccess\obj\x86\Debug\DataAccess.dll
 C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\DataAccess\obj\x86\Debug\DataAccess.pdb
-C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\DataAccess\obj\x86\Debug\DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\LILITH\Documents\Universidad 2014\Tesis\ProjectCeram\DataAccess\obj\x86\Debug\DataAccess.csproj.GenerateResource.Cache

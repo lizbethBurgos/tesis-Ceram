@@ -153,7 +153,8 @@
                                     <td>
                                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
                                             BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" 
-                                            CellPadding="4" ForeColor="Black" GridLines="Vertical">
+                                            CellPadding="4" ForeColor="Black" GridLines="Vertical" 
+                                            onselectedindexchanged="gridvie1_selectedIndexChange">
                                             <AlternatingRowStyle BackColor="White" />
                                             <Columns>
                                                 <asp:BoundField DataField="Cod_sampler" HeaderText="Código" />
@@ -161,6 +162,7 @@
                                                 <asp:BoundField DataField="Email" HeaderText="Email" />
                                                 <asp:BoundField DataField="Fono" HeaderText="Teléfono" />
                                                 <asp:BoundField DataField="Direccion" HeaderText="Dirección" />
+                                                <asp:CommandField ShowSelectButton="True" />
                                             </Columns>
                                             <FooterStyle BackColor="#CCCC99" />
                                             <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />

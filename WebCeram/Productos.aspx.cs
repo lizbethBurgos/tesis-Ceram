@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BussinessRules;
+using System.Data;
 
 namespace WebCeram
 {
@@ -39,18 +40,57 @@ namespace WebCeram
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            CatalogProduct cp = new CatalogProduct();
-            List<Producto> lp= cp.getProductName(tbName.Text);
-            this.gvSearch.DataSource=lp;
-            DataBind();
+            if (this.tbName.Text == "")
+            {
+                CatalogProduct cp = new CatalogProduct();
+                DataSet ds = cp.listProduct();
+                this.gvSearch0.DataSource = ds;
+                DataBind();
+                CleanControl(this.Controls);
+                this.lbSearch0.Text = "";
+            }
+            else
+            {
+
+                CatalogProduct cp = new CatalogProduct();
+                List<Producto> lp = cp.getProductName(tbName.Text);
+                this.gvSearch.DataSource = lp;
+                DataBind();
+                CleanControl(this.Controls);
+                this.lbSearch0.Text = "";
+                if(lp.Count==0)
+                {
+                    this.lbSearch0.Text = "No se encontraron resultados para su busqueda";
+                    this.CleanControl(this.Controls);
+                } 
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            CatalogProduct cp = new CatalogProduct();
-            List<Producto> lp = cp.getProductCode(Int32.Parse(tbSearchCod.Text));
-            this.gvSearch.DataSource = lp;
-            DataBind();
+            if (this.tbSearchCod.Text == "")
+            {
+                CatalogProduct cp = new CatalogProduct();
+                DataSet ds = cp.listProduct();
+                this.gvSearch0.DataSource = ds;
+                DataBind();
+                CleanControl(this.Controls);
+                this.lbSearch.Text = "";
+            }
+            else
+            {
+                CatalogProduct cp = new CatalogProduct();
+                List<Producto> lp = cp.getProductCode(Int32.Parse(tbSearchCod.Text));
+                this.gvSearch.DataSource = lp;
+                DataBind();
+                CleanControl(this.Controls);
+                this.lbSearch.Text = "";
+                if (lp.Count == 0)
+                {
+                    this.lbSearch.Text = "No se encontraron resultados para su busqueda";
+                    this.CleanControl(this.Controls);
+                } 
+            }
         }
 
         protected void Button4_Click(object sender, EventArgs e)

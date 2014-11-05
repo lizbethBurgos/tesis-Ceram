@@ -36,6 +36,7 @@ namespace WebCeram
                 this.GridView1.DataSource = ds;
                 DataBind();
                 this.CleanControl(this.Controls);
+                this.labelNamSearch0.Text = "";
             }
             else
             {
@@ -44,6 +45,7 @@ namespace WebCeram
                 this.gvSearch.DataSource = lcs;
                 DataBind();
                 this.CleanControl(this.Controls);
+                this.labelNamSearch0.Text = "";
                 if (lcs.Count == 0)
                 {
                     this.labelNamSearch0.Text = "No se encontraron resultados para su busqueda";
@@ -61,6 +63,7 @@ namespace WebCeram
                 this.GridView1.DataSource = ds;
                 DataBind();
                 this.CleanControl(this.Controls);
+                this.labelCodSearch.Text = "";
             }
             else
             {
@@ -69,7 +72,7 @@ namespace WebCeram
                 this.gvSearch.DataSource = lcs;
                 DataBind();
                 this.CleanControl(this.Controls);
-
+                this.labelCodSearch.Text = "";
                 if (lcs.Count == 0)
                 {
                     this.labelCodSearch.Text = "No se encontraron resultados para su busqueda";
@@ -99,6 +102,12 @@ namespace WebCeram
             csc.dropUser(new SamplerCompany(Int32.Parse(this.tbCodeDrop.Text)));
             this.labelEliminar.Text = "Empresa Eliminada";
             CleanControl(this.Controls);
+        }
+
+        protected void gridvie1_selectedIndexChange(object sender, EventArgs e)
+        {
+            int selected= this.GridView1.SelectedIndex;
+            this.tbName.Text = Convert.ToString(this.GridView1.Rows[selected].Cells[1].Text);
         }
     }
 }

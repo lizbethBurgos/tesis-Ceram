@@ -66,5 +66,14 @@ namespace BussinessRules
             bd.Close();
             return lf;
         }
+        public DataSet listFitoplancton()
+        {
+            DataBase bd = new DataBase();
+            DataSet set = new DataSet();
+            string sql = "SELECT * FROM cell";
+            set = bd.Set(sql);
+            return set;
+
+        }
     }
 }

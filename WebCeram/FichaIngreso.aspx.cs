@@ -16,11 +16,26 @@ namespace WebCeram
             
             this.lbFechaIngr.Text = DateTime.Today.ToShortDateString();
             this.lbTimeIngre.Text = DateTime.Now.ToShortTimeString();
+
+            if (Session["NameCompMues"] != null)
+            {
+                this.tbEntiMuestra.Text = Session["NameCompMues"].ToString();
+            }
+            if (Session["NameCompSoli"] != null)
+            {
+                this.tbSolicitantEmpresa.Text = Session["NameCompSoli"].ToString();
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
+            CatalogSample cs = new CatalogSample();
+            CatalogSamplerCompany csc = new CatalogSamplerCompany();
+
+            cs.addSample(new Sample());
+            string var = Request.Form.Get("timePicker");
+            this.tbTimePicker.Text = var;
+            this.tbTimePicker.Text  = this.tbCalendar.Text;
         }
         protected void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -40,6 +55,7 @@ namespace WebCeram
                 this.gvSearch.DataSource = ds;
                 DataBind();
                 this.CleanControl(this.Controls);
+                this.lbSearchName.Text = "";
             }
             else
             {
@@ -48,6 +64,7 @@ namespace WebCeram
                 this.gvSearch0.DataSource = lac;
                 DataBind();
                 this.CleanControl(this.Controls);
+                this.lbSearchName.Text = "";
                 if (lac.Count == 0)
                 {
                     this.lbSearchName.Text = "No se encontraron resultados para su busqueda";
@@ -65,6 +82,7 @@ namespace WebCeram
                 this.gvSearch.DataSource = ds;
                 DataBind();
                this.CleanControl(this.Controls);
+               this.lbSearchCod.Text = "";
             }
             else
             {
@@ -73,7 +91,7 @@ namespace WebCeram
                 this.gvSearch0.DataSource = lac;
                 DataBind();
                this.CleanControl(this.Controls);
-
+               this.lbSearchCod.Text = "";
                 if (lac.Count == 0)
                 {
                     this.lbSearchCod.Text = "No se encontraron resultados para su busqueda";
@@ -115,6 +133,7 @@ namespace WebCeram
                 this.GridView1.DataSource = ds;
                 DataBind();
                 this.CleanControl(this.Controls);
+                this.labelNamSearch0.Text = "";
             }
             else
             {
@@ -123,6 +142,7 @@ namespace WebCeram
                 this.GridView2.DataSource = lcs;
                 DataBind();
                 this.CleanControl(this.Controls);
+                this.labelNamSearch0.Text = "";
                 if (lcs.Count == 0)
                 {
                     this.labelNamSearch0.Text = "No se encontraron resultados para su busqueda";
@@ -140,6 +160,7 @@ namespace WebCeram
                 this.GridView1.DataSource = ds;
                 DataBind();
                 this.CleanControl(this.Controls);
+                this.labelCodSearch.Text = "";
             }
             else
             {
@@ -148,13 +169,56 @@ namespace WebCeram
                 this.GridView2.DataSource = lcs;
                 DataBind();
                 this.CleanControl(this.Controls);
-
+                this.labelCodSearch.Text = "";
                 if (lcs.Count == 0)
                 {
                     this.labelCodSearch.Text = "No se encontraron resultados para su busqueda";
                     this.CleanControl(this.Controls);
                 }
             }
+        }
+
+        protected void gv1Sampler_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                int selected = this.GridView1.SelectedIndex;
+                AlmacenaValorMues(Convert.ToString(this.GridView1.Rows[selected].Cells[1].Text));
+                // Redirije al formuario padre
+                Response.Redirect("FichaIngreso.aspx");
+        }
+        protected void gv1Sampler2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                int selected = this.GridView2.SelectedIndex;
+                AlmacenaValorMues(Convert.ToString(this.GridView2.Rows[selected].Cells[1].Text));
+                // Redirije al formuario padre
+                Response.Redirect("FichaIngreso.aspx");
+        }
+        protected void gvSearch0SAppli_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selected = this.gvSearch0.SelectedIndex;
+            AlmacenaValorSolici(Convert.ToString(this.gvSearch0.Rows[selected].Cells[1].Text));
+            // Redirije al formuario padre
+            Response.Redirect("FichaIngreso.aspx");
+        }
+        protected void gvSearchSAppli_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selected = this.gvSearch.SelectedIndex;
+            AlmacenaValorSolici(Convert.ToString(this.gvSearch.Rows[selected].Cells[1].Text));
+            // Redirije al formuario padre
+            Response.Redirect("FichaIngreso.aspx");
+        }
+        /*
+         *Almacena el nombre de la empresa muestreadora en una variable de session 
+         */
+        public void AlmacenaValorMues(string name)
+        {
+            Session["NameCompMues"] = name;
+        }
+        /*
+         *Almacena el nombre de la empresa solicitante en una variable de session 
+         */
+        public void AlmacenaValorSolici(string name)
+        {
+            Session["NameCompSoli"] = name;
         }
     }
 }

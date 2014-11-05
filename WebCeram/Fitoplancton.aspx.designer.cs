@@ -31,6 +31,15 @@ namespace WebCeram {
         protected global::System.Web.UI.WebControls.TextBox tbName;
         
         /// <summary>
+        /// Control lbSearchNa.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbSearchNa;
+        
+        /// <summary>
         /// Control btAddCell.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace WebCeram {
         protected global::System.Web.UI.WebControls.Button btSearchCode;
         
         /// <summary>
+        /// Control lbSearchCo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbSearchCo;
+        
+        /// <summary>
         /// Control tbCodeDrop.
         /// </summary>
         /// <remarks>
@@ -110,5 +128,14 @@ namespace WebCeram {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvSearchCell;
+        
+        /// <summary>
+        /// Control gvSearchCell0.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvSearchCell0;
     }
 }

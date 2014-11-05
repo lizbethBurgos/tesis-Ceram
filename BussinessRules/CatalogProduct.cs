@@ -66,5 +66,17 @@ namespace BussinessRules
             bd.Close();
             return lp;
         }
+        /**
+         * Metodo para listar todas los Productos
+         * */
+        public DataSet listProduct()
+        {
+            DataBase bd = new DataBase();
+            DataSet set = new DataSet();
+            string sql = "SELECT * FROM product";
+            set = bd.Set(sql);
+            return set;
+
+        }
     }
 }
